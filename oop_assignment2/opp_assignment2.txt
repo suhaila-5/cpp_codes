@@ -1,0 +1,519 @@
+// q1
+
+/*
+class circle
+{
+    public:
+       circle()
+       {
+           radius=0.0;
+           color="no color";
+       }
+       circle(double radius)
+       {
+          this->radius=radius;
+          color="no color";
+       }
+       circle(double radius,string color)
+       {
+           this->radius=radius;
+           this->color=color;
+
+       }
+       double getradius()
+       {
+           return radius;
+       }
+       string getcolor ()
+       {
+           return color;
+       }
+       void setradius (double radius)
+       {
+           this->radius=radius;
+       }
+       void setcolor(string color)
+       {
+           this->color=color;
+       }
+       double getarea()
+       {
+           return radius*radius*3.14;
+       }
+       void display_info()
+       {
+           cout<<"radius = "<<radius<<endl;
+           cout<<"color = "<<color<<endl;
+           cout<<"area = "<<getarea()<<endl;
+       }
+
+
+
+    protected:
+        double radius=1.0;
+        string color = "blue";
+
+};
+
+class cylinder :public circle
+{
+    public:
+   cylinder() : circle(1.0,"no color"), height(1.0) {}
+
+
+    cylinder(double radius) : circle(radius,"no color"), height(1.0) {}
+
+
+    cylinder(double radius, double height,string color) : circle(radius,color), height(height) {}
+
+    double getHeight() {
+        return height;
+    }
+
+    void setHeight(double height) {
+        this->height = height;
+    }
+
+    double getVolume() {
+        return getarea() * height;
+    }
+
+    void display_info() {
+        circle::display_info();
+        cout << "Height = " << height << endl;
+        cout << "Volume = " << getVolume() << endl;
+    }
+
+
+    protected:
+        double height=1.0;
+
+
+};
+
+
+
+int main() {
+    circle circle1; // Default constructor
+    circle circle2(5.0); // Constructor with radius
+    circle circle3(3.0, "red"); // Constructor with radius and color
+
+    cout << "Circle 1:" << endl;
+    circle1.display_info();
+
+    cout << "\nCircle 2:" << endl;
+    circle2.display_info();
+
+    cout << "\nCircle 3:" << endl;
+    circle3.display_info();
+
+    // Modifying circle3
+    circle3.setradius(4.0);
+    circle3.setcolor("green");
+
+    cout << "\nUpdated Circle 3:" << endl;
+    circle3.display_info();
+
+    return 0;
+}
+
+
+int main() {
+    cylinder cylinder1; // Default constructor
+    cylinder cylinder2(5.0); // Constructor with radius
+
+    cylinder cylinder4(5.0, 10.0, "red");
+
+    cout << "Cylinder 1 Information:" << endl;
+    cylinder1.display_info();
+
+    cout << "\nCylinder 2 Information:" << endl;
+    cylinder2.display_info();
+
+    cout << "\nCylinder 3 Information:" << endl;
+    cylinder4.display_info();
+
+    return 0;
+}
+*/
+
+//q2
+
+
+/*
+class customer {
+public:
+
+
+      customer() : id(0), name(""), discount(0) {}
+      customer(int id, const std::string& name, int discount)
+        : id(id), name(name), discount(discount) {}
+    int getid() const {
+        return id;
+    }
+
+    string getname() const {
+        return name;
+    }
+
+    int getdiscount() const {
+        return discount;
+    }
+
+    void setdiscount(int discount) {
+        this->discount = discount;
+    }
+
+    void display() const {
+        cout << "ID: " << id << endl;
+        cout << "Name: " << name << endl;
+        cout << "Discount: " << discount << "%" << endl;
+    }
+
+protected:
+    int id;
+    string name;
+    int discount;
+
+};
+
+class invoice : public customer
+{
+    public:
+        invoice(int id,  customer& customer, double amount)
+        : id(id), cust(customer), amount(amount) {}
+        int getid()
+        {
+            return id;
+        }
+        double getamount()
+        {
+            return amount;
+        }
+        customer getcustomer ()
+        {
+            return cust;
+        }
+        int getcustomerid ()
+        {
+            return cust.getid();
+        }
+        string getcustomername ()
+        {
+            return cust.getname() ;
+
+        }
+        int getcustomerdiscount()
+        {
+
+            return cust.getdiscount();
+        }
+        double amountafterdiscount ()
+        {
+            return amount-(amount*(cust.getdiscount()/100)) ;
+
+        }
+
+        void setcustomer (customer customer)
+        {
+            this->cust=customer ;
+        }
+        void setamount(double amount )
+        {
+            this->amount =amount ;
+        }
+           void display() {
+        cout << "Invoice ID: " <<id << endl;
+        cout << "Customer ID: " << getcustomerid() << endl;
+        cout << "Customer Name: " << getcustomername() << endl;
+        cout << "Customer Discount: " << getcustomerdiscount() << "%" << endl;
+        cout << "Original Amount: $" << amount << endl;
+        cout << "Amount after Discount: $" << amountafterdiscount()<<endl;
+    }
+
+
+
+
+    protected:
+        int id ;
+        customer cust ;
+        double amount ;
+
+
+};
+
+
+
+int main() {
+
+    customer customer1(1, "John Doe", 10);
+    invoice invoice(1001, customer1, 500.0);
+
+    invoice.display();
+
+
+
+    return 0;
+}
+*/
+
+
+//q3
+
+
+/*
+
+class person
+{
+    public:
+        person ()
+        {
+            firstName = "no name" ;
+            lastName ="no name" ;
+        }
+        person (string fn ,string ln)
+        {
+            firstName = fn ;
+            lastName =ln ;
+
+        }
+        void setName (string fn,string ln)
+        {
+            this->firstName =fn ;
+            this->lastName = ln ;
+
+        }
+        string getfirstName ()
+        {
+            return firstName;
+        }
+        string getlastName ()
+        {
+            return lastName ;
+
+        }
+        string getfullName ()
+        {
+            return firstName + " "+ lastName ;
+        }
+        void display ()
+        {
+            cout << "first Name is " <<getfirstName() <<endl ;
+            cout << "last name is " <<getlastName () <<endl ;
+            cout << "full name : " << getfullName()<<endl;
+
+        }
+
+    protected:
+        string firstName;
+        string lastName ;
+
+
+};
+
+class Doctor : public person
+{
+    public:
+        Doctor (string fn , string ln,string speciality)
+        {
+            this->firstName=fn;
+            this->lastName=ln;
+            this->speciality=speciality;
+        }
+        string getSpeciality()
+        {
+            return speciality ;
+        }
+        void setSpeciality (string speciality)
+        {
+            this->speciality = speciality;
+        }
+
+    protected:
+        string speciality ;
+
+};
+
+class Date
+{
+    public:
+    Date()
+    {
+        dday =0 ;
+        dMonth=0;
+        dYear=0;
+    }
+    Date(int d,int m,int y)
+    {
+        this->dMonth = m;
+        this->dday = d;
+        this->dYear = y;
+    }
+    void setDate(int month, int day, int year)
+    {
+        this->dMonth = month;
+        this->dday = day;
+        this->dYear = year;
+    }
+    int getMonth()
+    {
+        return dMonth;
+    }
+
+    int getDay()
+    {
+        return dday;
+    }
+
+    int getYear()
+    {
+        return dYear;
+    }
+    string toString()
+    {
+        return to_string(dMonth) + "/" + to_string(dday) + "/" + to_string(dYear);
+    }
+
+    protected:
+        int dMonth ;
+        int dday;
+        int dYear ;
+
+
+};
+
+class patient
+{
+public:
+    patient(int pID,int a ,Date dob ,Date admit ,Date discharge ,Doctor* doc )
+    {
+        patientId = pID;
+        age=a;
+        this->dob=dob;
+        admitDate=admit;
+        dischargeDate=discharge;
+        physician=doc;
+
+    }
+    void setDischargeDate(Date dischargeDate)
+    {
+        this->dischargeDate = dischargeDate;
+    }
+
+    Date getDischargeDate()
+    {
+        return dischargeDate;
+    }
+
+
+    void setPhysician(Doctor* physician)
+    {
+        this->physician = physician;
+    }
+
+    Doctor* getPhysician()
+    {
+        return physician;
+    }
+    void display_info()
+    {
+        cout << "Patient ID: " << patientId << endl;
+        cout << "Age: " << age << endl;
+        cout << "Date of Birth: " << dob.toString() << endl;
+        cout << "Admit Date: " << admitDate.toString() << endl;
+        cout << "Discharge Date: " << dischargeDate.toString() << endl;
+        cout << "Physician: " << physician->getfirstName() << " " << physician->getlastName() << endl;
+        cout << "Speciality: " << physician->getSpeciality() << endl;
+    }
+
+
+    protected:
+    int patientId;
+    int age;
+    Date dob;
+    Date admitDate;
+    Date dischargeDate;
+    Doctor* physician;
+
+};
+
+
+int main() {
+    // Creating a doctor
+    Doctor doc("John", "Doe", "Cardiology");
+
+    // Creating dates
+    Date dob(1, 15, 1990);
+    Date admitDate(7, 20, 2023);
+    Date dischargeDate(7, 25, 2023);
+
+    // Creating a patient
+    patient patient(1, 33, dob, admitDate, dischargeDate, &doc);
+
+    // Display patient information
+    patient.display_info();
+
+    return 0;
+}
+*/
+
+// q4
+
+/*
+Composition involves one class containing an object of another class as a member "has a "
+
+#include <iostream>
+#include <string>
+
+// Heart class representing a human organ
+class Heart {
+private:
+    int heartRate;
+
+public:
+    Heart(int rate) : heartRate(rate) {}
+    // Methods related to heart functionality
+};
+
+// Human class composed of Heart
+class Human {
+private:
+    std::string name;
+    Heart heart; // Composition of Heart class
+
+public:
+    Human(std::string name, int heartRate)
+        : name(name), heart(heartRate) {}
+    // Methods and functionality related to Human
+};
+
+
+Inheritance involves creating a new class (derived class) from an existing class (base class), inheriting its attributes and methods "is a"
+
+#include <iostream>
+#include <string>
+
+// Human class as base class
+class Human {
+protected:
+    std::string name;
+
+public:
+    Human(std::string name) : name(name) {}
+    virtual void speak() = 0; // Pure virtual function
+    // Other methods related to Human
+};
+
+// Man class inherits from Human
+class Man : public Human {
+private:
+    int age;
+
+public:
+    Man(std::string name, int age) : Human(name), age(age) {}
+    void speak() override {
+        std::cout << "Hello, I'm a man." << std::endl;
+    }
+    // Other methods and attributes specific to Man
+};
+*/

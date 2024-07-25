@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1721936034 source:d:\route cs\librarysystem\main.cpp
+	<iostream>
+	<string>
+
