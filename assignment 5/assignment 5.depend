@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1720118480 source:d:\route cs\assignment 5\main.cpp
+	<iostream>
+	<string>
+	<cctype>
+

@@ -1,0 +1,437 @@
+#include <iostream>
+#include <string>
+#include <cctype>
+
+using namespace std;
+
+
+/*
+//Q1
+void printArray (int arr[],int n)
+{
+
+    int i;
+    cout<<"the out put:"<<endl;
+    for(i=0;i<n;i++)
+    {
+        cout<<arr[i]<<" ";
+    }
+
+}
+//Q2
+int arraySum(int arr[],int n)
+{
+    int i;
+    int sum=0;
+    for(i=0;i<n;i++)
+    {
+        sum+=arr[i];
+    }
+
+    return sum;
+}
+int main()
+{
+    int x,i;
+    cout<<"enter number of elements"<<endl;
+    cin>>x;
+    int arr[x];
+    cout<<"enter your elements : "<<endl;
+    for(i=0;i<x;i++)
+    {
+        cin>>arr[i];
+    }
+    //printArray(arr,x);
+    cout<<endl<<"the sum of the array is : "<<arraySum(arr,x);
+    return 0;
+
+}*/
+/* //Q3
+int diagonalSum (int** arr,int r,int c)
+{
+    int i,j,sum=0;
+
+    for(i=0;i<r;i++)
+    {
+        for (j=0;j<c;j++)
+        { if(i==j)
+        {
+            sum+=arr[i][j];
+        }
+        }
+    }
+    return sum;
+}
+
+int main()
+{
+    int x,y,i,j,r;
+      cout << "Number of rows and columns: " << endl;
+    cin >> x >> y;
+    int** arr = new int*[x];
+    for (int i = 0; i < x; ++i) {
+        arr[i] = new int[y];
+    }
+
+    cout << "Enter your matrix: " << endl;
+    for (int i = 0; i < x; ++i) {
+        for (int j = 0; j < y; ++j) {
+            cin >> arr[i][j];
+        }
+    }
+
+    cout << "Diagonal Sum: " <<  diagonalSum(arr, x, y) << endl;
+
+    for (int i = 0; i < x; ++i) {
+        delete[] arr[i];
+    }
+    delete[] arr;
+
+    return 0;
+}*/
+
+/*
+   //Q4
+
+
+char findMostRepeatedChar(string word) {
+
+
+    int maxCount = 0;
+    char mostRepeated = '\0';
+
+    for (size_t i = 0; i < word.size(); ++i) {
+        int count = 0;
+        for (size_t j = 0; j < word.size(); ++j) {
+            if (word[i] == word[j]) {
+                ++count;
+            }
+        }
+        if (count > maxCount) {
+            maxCount = count;
+            mostRepeated = word[i];
+        }
+    }
+
+    if (maxCount == 1) {
+        cout << "No repeated characters found (all characters are unique)." << endl;
+        return '\0';
+    }
+    return mostRepeated;
+}
+
+
+int main() {
+    string word;
+    cout << "Enter your word: ";
+    cin >> word;
+
+    char result = findMostRepeatedChar(word);
+    if (result != '\0') {
+        cout << "The most repeated character: " << result << endl;
+    }
+
+    return 0;
+}
+
+*/
+
+
+
+/*
+
+//Q5
+string toLower(string word) {
+    for (size_t i = 0; i < word.size(); ++i) {
+        word[i] = tolower(word[i]);
+    }
+    return word;
+}
+
+
+int main() {
+    string word;
+    cout << "Enter your word: ";
+    cin >> word;
+
+  cout << "Lowercased word: " <<toLower(word)<< endl;
+     return 0;
+}
+*/
+
+/*
+
+//Q6
+
+bool areAllDigits(string word) {
+    int i,size=word.size();
+    for (i=0;i<size;i++) {
+        if (!isdigit(word[i])) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int main() {
+    string word;
+    cout << "Enter your word: ";
+    cin >> word;
+
+    if (areAllDigits(word)) {
+        cout << "True" << endl;
+    } else {
+        cout << "False" << endl;
+    }
+
+    return 0;
+}
+*/
+/*
+//Q7 
+// NOT WORKING 
+int reverseInt(int num) {
+    int rare=0 ,remain,front=0;
+
+     if(num>0){
+     rare = num % 10;
+     front =front*10+rare;
+     remain = num / 10;
+     }
+     reverseInt(remain);
+
+     return front;
+}
+
+int main() {
+    int inputNum;
+    cout << "Enter an integer: ";
+    cin >> inputNum;
+
+    int reversedNum = reverseInt(inputNum);
+    cout << "Reversed integer: " << reversedNum << endl;
+
+    return 0;
+}
+*/
+
+
+//Q8
+/*
+int maxDigit(int num) {
+    int max = 0;
+
+    while (num > 0) {
+        int digit = num % 10;
+        if (digit > max) {
+            max = digit;
+        }
+        num /= 10;
+    }
+
+    return max;
+}
+
+int main() {
+    int num ;
+    cout<<"enter your number"<<endl;
+    cin>>num;
+    cout<<"the maxDigit is : "<<maxDigit(num)<<endl;
+
+    return 0;
+}
+*/
+//Q9
+/*
+void reversed(string word)
+{
+    string reversed;
+
+    for (int i = word.size() - 1; i >= 0; --i) {
+        reversed += word[i];
+    }
+
+    cout << "Reversed string: " << reversed << endl;
+
+}
+int main() {
+    string word;
+    cout << "Enter a string: ";
+    getline(cin, word);
+    reversed(word);
+
+    return 0;
+}
+*/
+//Q10
+/*
+int countWords(string str) {
+    int count = 0;
+    bool inWord = false;
+
+    for (char c : str) {
+        if (c == ' ' || c == '\t' || c == '\n') {
+            if (inWord) {
+                count++;
+                inWord = false;
+            }
+        } else {
+            if (!inWord) {
+                inWord = true;
+            }
+        }
+    }
+
+    if (inWord) {
+        count++;
+    }
+
+    return count;
+}
+
+int main() {
+    string input;
+
+    cout << "Enter a string: ";
+    getline(cin, input);
+
+    int wordsCount = countWords(input);
+
+    cout << "Total number of words: " << wordsCount << endl;
+
+    return 0;
+}
+*/
+//Q11
+//not answerd
+/*
+//Q12
+void swapNumbers(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+int main() {
+    int num1, num2;
+    cout<<"enter your 2 numbers"<<endl;
+    cin>>num1>>num2;
+    cout << "Before swapping:" << endl;
+    cout << "num1 = " << num1 << ", num2 = " << num2 << endl;
+    swapNumbers(&num1, &num2);
+    cout << "After swapping:" << endl;
+    cout << "num1 = " << num1 << ", num2 = " << num2 << endl;
+
+    return 0;
+}
+*/
+/*
+//Q13
+int main() {
+    int size;
+
+
+    cout << "Enter the size of the array: ";
+    cin >> size;
+
+
+    int *arr = new int[size];
+
+    cout << "Enter " << size << " integers separated by spaces: ";
+    for (int i = 0; i < size; ++i) {
+        cin >> arr[i];
+    }
+
+    cout << "Output: ";
+    for (int i = 0; i < size; ++i) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+
+    delete[] arr;
+
+    return 0;
+}
+*/
+// Q14 --> 13 -->4+9
+//Q15 -->b) p now points to b
+/*
+//Q16
+string shiftLetters(string str) {
+    for (int i = 0; i < str.length(); ++i) {
+        if (isalpha(str[i])) { /
+            if (str[i] == 'z') {
+                str[i] = 'a';
+            } else if (str[i] == 'Z') {
+                str[i] = 'A';
+            } else {
+                str[i]++;
+            }
+        }
+    }
+    return str;
+}
+
+int main() {
+    string input;
+    cout << "Enter a string: ";
+    getline(cin, input);
+    string output = shiftLetters(input);
+    cout << "Output: " << output << endl;
+
+    return 0;
+}
+*/
+
+/*
+// Q17
+string capitalizeFirstLetter(string str) {
+    bool newWord = true;
+
+    for (int i = 0; i < str.length(); ++i) {
+        if (isspace(str[i])) {
+            newWord = true;
+        } else if (newWord) {
+            str[i] = toupper(str[i]);
+            newWord = false;
+        }
+    }
+
+    return str;
+}
+
+int main() {
+    string input;
+
+    cout << "Enter a string: ";
+    getline(cin, input);
+
+    string output = capitalizeFirstLetter(input);
+
+    cout << "Output: " << output << endl;
+
+    return 0;
+}
+*/
+/*
+//Q18
+string removeAnchor(string url) {
+    size_t pos = url.find('#');
+    if (pos != string::npos) {
+        url = url.substr(0, pos);
+    }
+    return url;
+}
+
+int main() {
+    string input;
+
+    cout << "Enter a URL: ";
+    getline(cin, input);
+    string output = removeAnchor(input);
+
+    cout << "Output: " << output << endl;
+
+    return 0;
+}
+*/
